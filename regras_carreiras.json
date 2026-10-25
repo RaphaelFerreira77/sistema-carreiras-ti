@@ -1,0 +1,265 @@
+{
+  "metadados": {
+    "nome": "Sistema Especialista para Carreiras em TI",
+    "versao_base": "1.0",
+    "observacao": "Os percentuais representam compatibilidade segundo esta metodologia, e não probabilidade de sucesso profissional."
+  },
+  "escala": {
+    "minimo": 1,
+    "maximo": 5,
+    "afinidade": {
+      "1": "Nenhuma afinidade",
+      "2": "Pouca afinidade",
+      "3": "Afinidade moderada",
+      "4": "Muita afinidade",
+      "5": "Afinidade muito alta"
+    },
+    "conhecimento": {
+      "1": "Nunca estudei",
+      "2": "Conheço o conceito",
+      "3": "Já pratiquei em exercícios",
+      "4": "Já apliquei em projetos",
+      "5": "Domino com segurança"
+    },
+    "objetivo": {
+      "1": "Nenhum interesse em atuar nessa área",
+      "2": "Pouco interesse",
+      "3": "Interesse moderado",
+      "4": "Muito interesse",
+      "5": "É um dos meus principais objetivos"
+    }
+  },
+  "metodologia": {
+    "pesos_globais": {
+      "afinidade": 0.60,
+      "objetivo": 0.25,
+      "conhecimento": 0.15
+    },
+    "nivel_dominio_minimo": 3,
+    "tolerancia_empate_pontos_percentuais": 0.5,
+    "descricao": "Cada componente é normalizado para 0-100%: (média ponderada - 1) / 4 * 100. A compatibilidade final é a soma dos três componentes multiplicada pelos pesos_globais. Ajustes opcionais por trilha só existem quando há justificativa registrada em 'ajustes'."
+  },
+  "etapas": [
+    {"id": "perfil", "titulo": "Perfil pessoal", "descricao": "Informações gerais. Não entram no cálculo de compatibilidade."},
+    {"id": "afinidades", "titulo": "Afinidades técnicas", "descricao": "O quanto cada tipo de atividade combina com você."},
+    {"id": "conhecimentos", "titulo": "Conhecimentos atuais", "descricao": "O que você já estudou ou praticou até hoje."},
+    {"id": "objetivos", "titulo": "Objetivos profissionais", "descricao": "Em quais áreas você gostaria de atuar."}
+  ],
+  "campos_perfil": [
+    {"id": "nome", "rotulo": "Como podemos chamar você?", "tipo": "texto", "obrigatorio": true},
+    {"id": "formacao", "rotulo": "Situação acadêmica atual", "tipo": "selecao", "obrigatorio": true,
+     "opcoes": ["Ensino médio/técnico", "Graduação em andamento (Computação/TI)", "Graduação em andamento (outra área)", "Graduado(a)", "Transição de carreira"]},
+    {"id": "horas_estudo_semana", "rotulo": "Horas disponíveis para estudo por semana", "tipo": "selecao", "obrigatorio": true,
+     "opcoes": ["Até 5 horas", "6 a 10 horas", "11 a 20 horas", "Mais de 20 horas"]}
+  ],
+  "perguntas_afinidade": [
+    {"id": "A01", "texto": "Gosto de programar e de resolver problemas lógicos passo a passo."},
+    {"id": "A02", "texto": "Gosto de matemática e estatística."},
+    {"id": "A03", "texto": "Gosto de analisar dados para descobrir padrões e tirar conclusões."},
+    {"id": "A04", "texto": "Gosto de design visual e de pensar na experiência de quem usa um sistema."},
+    {"id": "A05", "texto": "Tenho interesse em infraestrutura, redes e sistemas operacionais."},
+    {"id": "A06", "texto": "Gosto de investigar problemas e pensar em como proteger sistemas contra ataques."},
+    {"id": "A07", "texto": "Gosto de automatizar tarefas repetitivas e de colocar sistemas no ar."},
+    {"id": "A08", "texto": "Gosto de organizar pessoas e tarefas, comunicar ideias e tomar decisões de prioridade."},
+    {"id": "A09", "texto": "Tenho atenção aos detalhes e gosto de verificar se algo realmente funciona."},
+    {"id": "A10", "texto": "Tenho interesse em criar aplicativos para celulares e tablets."},
+    {"id": "A11", "texto": "Gosto de planejar como as partes de um sistema grande se encaixam."},
+    {"id": "A12", "texto": "Gosto de trabalhar com grandes volumes de dados e com a forma como eles circulam entre sistemas."}
+  ],
+  "perguntas_conhecimento_geral": [
+    {"id": "G01", "texto": "Tenho interesse em aprender novas tecnologias continuamente.", "usada_no_calculo": false,
+     "uso": "Informativa: usada apenas para ajustar o ritmo sugerido no roadmap."}
+  ],
+  "competencias": {
+    "C01": {"nome": "Lógica de programação e uma linguagem (Python, Java ou similar)", "recurso": "CS50P (Harvard, gratuito) e tutorial oficial do Python"},
+    "C02": {"nome": "Banco de dados e SQL", "recurso": "SQLBolt e documentação do PostgreSQL"},
+    "C03": {"nome": "APIs REST e HTTP", "recurso": "MDN Web Docs (seção HTTP) e tutorial do FastAPI"},
+    "C04": {"nome": "Git e GitHub", "recurso": "Livro Pro Git (gratuito) e GitHub Skills"},
+    "C05": {"nome": "HTML, CSS e JavaScript", "recurso": "MDN Web Docs e freeCodeCamp (Responsive Web Design)"},
+    "C06": {"nome": "Design de interfaces e prototipação", "recurso": "Tutoriais oficiais do Figma e Refactoring UI (material gratuito)"},
+    "C07": {"nome": "Estatística básica", "recurso": "Khan Academy (Estatística e Probabilidade)"},
+    "C08": {"nome": "Python para análise de dados (pandas)", "recurso": "Kaggle Learn (Pandas) e documentação do pandas"},
+    "C09": {"nome": "Fundamentos de machine learning", "recurso": "Kaggle Learn (Intro to Machine Learning) e Machine Learning Crash Course do Google"},
+    "C10": {"nome": "ETL e pipelines de dados", "recurso": "Documentação do Apache Airflow e Data Engineering Zoomcamp (gratuito)"},
+    "C11": {"nome": "Linux e linha de comando", "recurso": "Linux Journey e OverTheWire (Bandit)"},
+    "C12": {"nome": "Redes de computadores (TCP/IP, DNS, HTTP)", "recurso": "Cisco Networking Academy (cursos introdutórios gratuitos) e Packet Tracer"},
+    "C13": {"nome": "Fundamentos de segurança (OWASP, criptografia, autenticação)", "recurso": "OWASP Top 10 e salas gratuitas do TryHackMe"},
+    "C14": {"nome": "Contêineres (Docker)", "recurso": "Documentação oficial do Docker (Get Started)"},
+    "C15": {"nome": "Integração e entrega contínuas (CI/CD)", "recurso": "Documentação do GitHub Actions"},
+    "C16": {"nome": "Serviços de computação em nuvem (AWS, Azure ou GCP)", "recurso": "Trilhas gratuitas do AWS Skill Builder, Microsoft Learn e Google Cloud Skills Boost"},
+    "C17": {"nome": "Infraestrutura como código (Terraform)", "recurso": "Tutoriais da HashiCorp Developer"},
+    "C18": {"nome": "Monitoramento e observabilidade", "recurso": "Documentação do Prometheus e do Grafana"},
+    "C19": {"nome": "Desenvolvimento mobile (Kotlin, Swift ou Flutter)", "recurso": "Android Basics com Kotlin (Google) ou codelabs do Flutter"},
+    "C20": {"nome": "Testes automatizados", "recurso": "Documentação do pytest, do Playwright e do Cypress"},
+    "C21": {"nome": "Planejamento de testes e casos de teste", "recurso": "Syllabus Foundation Level do ISTQB (material gratuito)"},
+    "C22": {"nome": "Metodologias ágeis (Scrum e Kanban)", "recurso": "Scrum Guide (gratuito)"},
+    "C23": {"nome": "Levantamento de requisitos e priorização de produto", "recurso": "Materiais gratuitos de Product Discovery e histórias de usuário (Atlassian)"},
+    "C24": {"nome": "Arquitetura de software e padrões de projeto", "recurso": "Refactoring.Guru (Padrões de Projeto) e AWS Well-Architected Framework"}
+  },
+  "trilhas": [
+    {
+      "id": "backend",
+      "nome": "Desenvolvimento Back-end",
+      "descricao": "Constrói a lógica do servidor, APIs, regras de negócio e integração com bancos de dados.",
+      "pergunta_objetivo": {"id": "O01", "texto": "Quero atuar com desenvolvimento Back-end (servidores, APIs e bancos de dados)."},
+      "pesos_afinidade": {"A01": 3, "A11": 2, "A12": 1, "A07": 1},
+      "competencias_junior": [
+        {"id": "C01", "importancia": 3}, {"id": "C04", "importancia": 2}, {"id": "C02", "importancia": 3},
+        {"id": "C03", "importancia": 3}, {"id": "C11", "importancia": 1}, {"id": "C20", "importancia": 2},
+        {"id": "C13", "importancia": 1}, {"id": "C14", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["roadmap.sh (Backend Developer)", "CS50 (Harvard)", "Documentação oficial do FastAPI ou do framework escolhido"],
+      "certificacoes": [{"nome": "Oracle Certified Associate, Java SE (se optar por Java)", "obrigatoria": false}],
+      "projetos_portfolio": ["API REST de uma lista de tarefas com autenticação e testes", "Sistema de cadastro com banco de dados relacional e documentação da API", "Encurtador de URLs com contêiner Docker"]
+    },
+    {
+      "id": "frontend",
+      "nome": "Desenvolvimento Front-end/UX",
+      "descricao": "Cria interfaces web acessíveis e agradáveis, com foco na experiência do usuário.",
+      "pergunta_objetivo": {"id": "O02", "texto": "Quero atuar com Front-end e experiência do usuário (interfaces e design)."},
+      "pesos_afinidade": {"A04": 3, "A01": 2, "A09": 1},
+      "competencias_junior": [
+        {"id": "C05", "importancia": 3}, {"id": "C01", "importancia": 2}, {"id": "C06", "importancia": 3},
+        {"id": "C04", "importancia": 2}, {"id": "C03", "importancia": 2}, {"id": "C20", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["roadmap.sh (Frontend Developer)", "freeCodeCamp (Responsive Web Design e JavaScript)", "MDN Web Docs"],
+      "certificacoes": [{"nome": "Certificações de front-end não são exigência de mercado; o portfólio pesa mais", "obrigatoria": false}],
+      "projetos_portfolio": ["Página pessoal responsiva e acessível", "Aplicação que consome uma API pública (ex.: clima ou filmes)", "Redesenho de uma interface existente com protótipo no Figma e versão codificada"]
+    },
+    {
+      "id": "ciencia_dados",
+      "nome": "Ciência de Dados",
+      "descricao": "Analisa dados, constrói modelos estatísticos e de aprendizado de máquina e comunica descobertas.",
+      "pergunta_objetivo": {"id": "O03", "texto": "Quero atuar com Ciência de Dados (análise, estatística e modelos preditivos)."},
+      "pesos_afinidade": {"A02": 3, "A03": 3, "A01": 1, "A12": 1},
+      "competencias_junior": [
+        {"id": "C01", "importancia": 2}, {"id": "C07", "importancia": 3}, {"id": "C08", "importancia": 3},
+        {"id": "C02", "importancia": 2}, {"id": "C09", "importancia": 3}, {"id": "C04", "importancia": 1}
+      ],
+      "ajustes": [
+        {"pergunta": "A02", "valor_maximo": 2, "fator": 0.95,
+         "justificativa": "Estatística é central na área; afinidade baixa reduz levemente a compatibilidade, mas pode ser desenvolvida com estudo."}
+      ],
+      "recursos_gratuitos": ["Kaggle Learn (Python, Pandas, Machine Learning)", "Khan Academy (Estatística)", "Machine Learning Crash Course do Google"],
+      "certificacoes": [{"nome": "Certificações de fornecedores de nuvem na área de dados (opcionais)", "obrigatoria": false}],
+      "projetos_portfolio": ["Análise exploratória de um conjunto de dados do Kaggle", "Modelo de previsão com avaliação de métricas e relatório em notebook", "Painel interativo com os principais achados"]
+    },
+    {
+      "id": "engenharia_dados",
+      "nome": "Engenharia de Dados",
+      "descricao": "Projeta e mantém pipelines que coletam, transformam e entregam dados de forma confiável.",
+      "pergunta_objetivo": {"id": "O04", "texto": "Quero atuar com Engenharia de Dados (pipelines, ETL e armazenamento)."},
+      "pesos_afinidade": {"A12": 3, "A01": 2, "A07": 1, "A03": 1},
+      "competencias_junior": [
+        {"id": "C01", "importancia": 2}, {"id": "C02", "importancia": 3}, {"id": "C11", "importancia": 1},
+        {"id": "C10", "importancia": 3}, {"id": "C08", "importancia": 2}, {"id": "C14", "importancia": 1},
+        {"id": "C16", "importancia": 1}, {"id": "C04", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["Data Engineering Zoomcamp", "roadmap.sh (Data Engineer, quando disponível)", "Documentação do Apache Airflow"],
+      "certificacoes": [{"nome": "Certificações de dados de AWS, Azure ou Google Cloud (opcionais)", "obrigatoria": false}],
+      "projetos_portfolio": ["Pipeline ETL que lê uma API pública e grava em um banco de dados", "Modelagem de um data warehouse simples com consultas analíticas", "Pipeline agendado com Airflow e contêiner Docker"]
+    },
+    {
+      "id": "ciberseguranca",
+      "nome": "Cibersegurança",
+      "descricao": "Protege sistemas e redes, investiga incidentes e identifica vulnerabilidades.",
+      "pergunta_objetivo": {"id": "O05", "texto": "Quero atuar com Cibersegurança (proteção, análise de vulnerabilidades e incidentes)."},
+      "pesos_afinidade": {"A06": 3, "A05": 2, "A01": 1, "A09": 1},
+      "competencias_junior": [
+        {"id": "C12", "importancia": 3}, {"id": "C11", "importancia": 3}, {"id": "C13", "importancia": 3},
+        {"id": "C01", "importancia": 1}, {"id": "C03", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["TryHackMe (salas gratuitas)", "OWASP Top 10", "OverTheWire (Bandit)"],
+      "certificacoes": [{"nome": "CompTIA Security+ (opcional, útil para vagas iniciais em alguns mercados)", "obrigatoria": false}],
+      "projetos_portfolio": ["Relatório de análise de vulnerabilidades em um laboratório próprio", "Resolução documentada de desafios de CTF", "Script de verificação de configurações de segurança em um servidor Linux"]
+    },
+    {
+      "id": "devops_sre",
+      "nome": "DevOps/SRE",
+      "descricao": "Automatiza a entrega de software e garante a confiabilidade dos sistemas em produção.",
+      "pergunta_objetivo": {"id": "O06", "texto": "Quero atuar com DevOps/SRE (automação, entrega contínua e confiabilidade)."},
+      "pesos_afinidade": {"A07": 3, "A05": 2, "A01": 1, "A09": 1},
+      "competencias_junior": [
+        {"id": "C11", "importancia": 3}, {"id": "C04", "importancia": 2}, {"id": "C14", "importancia": 3},
+        {"id": "C15", "importancia": 3}, {"id": "C12", "importancia": 1}, {"id": "C18", "importancia": 2},
+        {"id": "C16", "importancia": 1}, {"id": "C01", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["roadmap.sh (DevOps)", "Documentação do Docker e do GitHub Actions", "Linux Journey"],
+      "certificacoes": [{"nome": "AWS Certified Cloud Practitioner (opcional, porta de entrada)", "obrigatoria": false}],
+      "projetos_portfolio": ["Pipeline de CI/CD no GitHub Actions para uma aplicação web", "Aplicação empacotada com Docker Compose", "Painel de monitoramento com Prometheus e Grafana"]
+    },
+    {
+      "id": "arquitetura_cloud",
+      "nome": "Arquitetura Cloud",
+      "descricao": "Desenha soluções escaláveis, seguras e econômicas usando serviços de nuvem.",
+      "pergunta_objetivo": {"id": "O07", "texto": "Quero atuar com Arquitetura Cloud (desenho de soluções em nuvem)."},
+      "pesos_afinidade": {"A11": 3, "A05": 2, "A07": 1, "A06": 1},
+      "competencias_junior": [
+        {"id": "C12", "importancia": 2}, {"id": "C11", "importancia": 2}, {"id": "C16", "importancia": 3},
+        {"id": "C17", "importancia": 2}, {"id": "C14", "importancia": 1}, {"id": "C13", "importancia": 1},
+        {"id": "C24", "importancia": 2}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["AWS Skill Builder (trilhas gratuitas)", "Microsoft Learn", "Google Cloud Skills Boost (conteúdos gratuitos)"],
+      "certificacoes": [
+        {"nome": "AWS Certified Cloud Practitioner (opcional)", "obrigatoria": false},
+        {"nome": "Microsoft Azure Fundamentals AZ-900 (opcional)", "obrigatoria": false}
+      ],
+      "projetos_portfolio": ["Hospedagem de um site estático com CDN e domínio na nuvem", "Arquitetura de aplicação em três camadas descrita em diagrama e implantada", "Infraestrutura provisionada com Terraform"]
+    },
+    {
+      "id": "mobile",
+      "nome": "Desenvolvimento Mobile",
+      "descricao": "Desenvolve aplicativos para Android e iOS, nativos ou multiplataforma.",
+      "pergunta_objetivo": {"id": "O08", "texto": "Quero atuar com Desenvolvimento Mobile (aplicativos para celular)."},
+      "pesos_afinidade": {"A10": 3, "A01": 2, "A04": 1},
+      "competencias_junior": [
+        {"id": "C01", "importancia": 3}, {"id": "C19", "importancia": 3}, {"id": "C03", "importancia": 2},
+        {"id": "C04", "importancia": 2}, {"id": "C06", "importancia": 1}, {"id": "C20", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["Android Basics com Kotlin (Google)", "Codelabs e documentação do Flutter", "roadmap.sh (Android)"],
+      "certificacoes": [{"nome": "Não há certificação exigida para a área; priorize o portfólio de aplicativos", "obrigatoria": false}],
+      "projetos_portfolio": ["Aplicativo de lista de tarefas com armazenamento local", "Aplicativo que consome uma API pública", "Aplicativo publicado em loja ou distribuído para testes"]
+    },
+    {
+      "id": "qa",
+      "nome": "Quality Assurance (QA)",
+      "descricao": "Garante a qualidade do software por meio de planejamento de testes, automação e análise de falhas.",
+      "pergunta_objetivo": {"id": "O09", "texto": "Quero atuar com Quality Assurance (testes e garantia de qualidade)."},
+      "pesos_afinidade": {"A09": 3, "A01": 1, "A06": 1, "A08": 1},
+      "competencias_junior": [
+        {"id": "C21", "importancia": 3}, {"id": "C20", "importancia": 3}, {"id": "C01", "importancia": 2},
+        {"id": "C03", "importancia": 2}, {"id": "C02", "importancia": 1}, {"id": "C22", "importancia": 1},
+        {"id": "C04", "importancia": 1}
+      ],
+      "ajustes": [],
+      "recursos_gratuitos": ["Syllabus Foundation Level do ISTQB", "Documentação do Playwright e do Cypress", "Documentação do pytest"],
+      "certificacoes": [{"nome": "ISTQB Foundation Level (opcional, valorizada em vagas de QA)", "obrigatoria": false}],
+      "projetos_portfolio": ["Plano de testes e casos de teste para um aplicativo real", "Suíte de testes automatizados de interface com Playwright ou Cypress", "Testes automatizados de uma API com relatório de execução"]
+    },
+    {
+      "id": "product_management",
+      "nome": "Product Management",
+      "descricao": "Define o que construir e por quê, conectando necessidades dos usuários, negócio e equipe técnica.",
+      "pergunta_objetivo": {"id": "O10", "texto": "Quero atuar com Product Management (definição e priorização de produtos)."},
+      "pesos_afinidade": {"A08": 3, "A03": 1, "A04": 1, "A11": 1},
+      "competencias_junior": [
+        {"id": "C22", "importancia": 3}, {"id": "C23", "importancia": 3}, {"id": "C06", "importancia": 1},
+        {"id": "C02", "importancia": 1}, {"id": "C07", "importancia": 1}
+      ],
+      "ajustes": [
+        {"pergunta": "A08", "valor_maximo": 2, "fator": 0.95,
+         "justificativa": "Comunicação e priorização são atividades centrais do papel; afinidade baixa reduz levemente a compatibilidade, mas pode ser desenvolvida."}
+      ],
+      "recursos_gratuitos": ["Scrum Guide", "Materiais gratuitos de Product Discovery e histórias de usuário da Atlassian", "Prática de priorização com frameworks como RICE e MoSCoW"],
+      "certificacoes": [{"nome": "Professional Scrum Product Owner ou equivalente (opcional)", "obrigatoria": false}],
+      "projetos_portfolio": ["Documento de visão e backlog priorizado de um produto fictício", "Estudo de caso com entrevistas de usuários e proposta de melhoria", "Roadmap de produto com métricas de sucesso"]
+    }
+  ]
+}
