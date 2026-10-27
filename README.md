@@ -2,7 +2,7 @@
 
 Projeto acadêmico de Ciência da Computação. O sistema funciona como um consultor de carreiras: a partir das respostas do usuário, calcula a compatibilidade com dez trilhas de tecnologia, aponta lacunas de competências e sugere um plano de desenvolvimento.
 
-> Projeto em desenvolvimento por etapas. Estado atual: **Fase 4 (interface Streamlit)**.
+> Projeto em desenvolvimento por etapas. Estado atual: **Fase 5 (testes de robustez)**.
 
 ## Trilhas contempladas
 
@@ -37,6 +37,14 @@ python motor.py
 
 Compatibilidade = afinidade (60%) + objetivo (25%) + conhecimento (15%), com pesos lidos do JSON; ajustes justificados aplicam penalidades a perfis conflitantes e empates parciais são sinalizados.
 
+## Testes
+
+```
+pytest
+```
+
+Cobrem a validação da base, o motor (cálculo, penalidades, entradas inválidas), gaps e roadmap, casos limite (perfis ambíguos, empates parciais, justificativas) e um teste de fumaça da interface.
+
 ## Interface web
 
 ```
@@ -65,6 +73,6 @@ README.md
 .gitignore
 ```
 
-## Próximas etapas
+## Status
 
-Testes de robustez e casos limite.
+Todas as fases do enunciado (1 a 5) foram implementadas.
