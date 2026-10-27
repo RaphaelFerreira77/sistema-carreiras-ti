@@ -2,7 +2,7 @@
 
 Projeto acadêmico de Ciência da Computação. O sistema funciona como um consultor de carreiras: a partir das respostas do usuário, calcula a compatibilidade com dez trilhas de tecnologia, aponta lacunas de competências e sugere um plano de desenvolvimento.
 
-> Projeto em desenvolvimento por etapas. Estado atual: **Etapa 1 (base de conhecimento)**.
+> Projeto em desenvolvimento por etapas. Estado atual: **Fase 3 (gaps e roadmap)**.
 
 ## Trilhas contempladas
 
@@ -29,11 +29,29 @@ python validar_base.py
 
 O script confere se o JSON carrega, se há as dez trilhas e se todas as referências (perguntas, competências, pesos) são consistentes.
 
+## Motor de inferência
+
+```
+python motor.py
+```
+
+Compatibilidade = afinidade (60%) + objetivo (25%) + conhecimento (15%), com pesos lidos do JSON; ajustes justificados aplicam penalidades a perfis conflitantes e empates parciais são sinalizados.
+
+## Lacunas e roadmap
+
+```
+python roadmap.py
+```
+
+Compara o nível do usuário em cada competência Júnior da trilha com o mínimo definido no JSON, ordena as lacunas por prioridade (importância x distância) e sugere o que estudar, certificações e projetos de portfólio.
+
 ## Estrutura atual
 
 ```
 regras_carreiras.json   # trilhas, perguntas, pesos, competências e recomendações
 validar_base.py         # validação da base
+motor.py                # motor de inferência (pontuação ponderada e ranking)
+roadmap.py              # análise de lacunas e roadmap personalizado
 requirements.txt
 README.md
 .gitignore
@@ -41,4 +59,4 @@ README.md
 
 ## Próximas etapas
 
-Motor de inferência, análise de lacunas e roadmap, interface Streamlit e testes finais.
+Interface Streamlit e testes finais.
